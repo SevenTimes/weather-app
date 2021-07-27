@@ -10,20 +10,21 @@
   <body>
     <main>
       <span id="location">City Name and Country</span>
-      <div>
+      <div id="main-stats">
         <img src="#" alt="dynamic weather icon" />
         <div class="temp">
           <h1>30c</h1>
           <p>Feels like</p>
         </div>
-        <div class="unit-switch">
-          <button>C</button>
-          <button>F</button>
-        </div>
+      </div>
+      <div id="additional-stats">
+        <span id="wind-info">N, 3m/s</span>
+        <span id="humidity-info">40%</span>
       </div>
     </main>
     <input type="text" />
     <button id="search">search</button>
+    <p id="alert-404">Please insert correct city name</p>
     <script src="./app.js"></script>
   </body>
 </html>

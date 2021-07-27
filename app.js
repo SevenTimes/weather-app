@@ -3,9 +3,14 @@ async function getWeatherData(city) {
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2393c3bafdf1164d3efc533db9ceed34&units=metric`
   );
   const weatherJson = await weatherResponse.json();
+
+  const alert404 = document.getElementById('alert-404');
   if (weatherJson.cod === '404') {
-    alert(weatherJson.message);
+    alert404.style.display = 'block';
     return;
+  }
+  if (alert404.style.display === 'block') {
+    alert404.style.display = 'none';
   }
   const weatherData = new getWeatherObject(weatherJson);
   updateWeatherInfo(weatherData);
@@ -37,16 +42,31 @@ function updateWeatherInfo(data) {
   weatherIcon.src = `https://openweathermap.org/img/wn/${data.weatherIcon}@4x.png`;
 
   const temp = document.querySelector('h1');
-  temp.innerText = `${data.temp}°`;
+  temp.innerText = `${data.temp}°C`;
 
   const feelLike = document.querySelector('p');
   feelLike.innerText = `Feels like ${data.feelsLikeTemp}°`;
+
+  const windInfo = document.querySelector('#wind-info');
+  windInfo.innerText = `Wind ${data.windDirection}, ${data.windSpeed} m/s`;
+
+  const humidity = document.querySelector('#humidity-info');
+  humidity.innerText = `Humidity ${data.humidity}%`;
 }
 
+const cityInput = document.querySelector('input');
 const searchBtn = document.querySelector('#search');
+
 searchBtn.addEventListener('click', searchWeather);
+cityInput.addEventListener('keydown', enterValue);
+
+function enterValue(e) {
+  if (e.code === 'Enter') {
+    searchWeather();
+  }
+}
 
 function searchWeather() {
-  const cityInput = document.querySelector('input').value;
-  getWeatherData(cityInput);
+  getWeatherData(cityInput.value);
+  cityInput.value = '';
 }
