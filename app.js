@@ -38,13 +38,16 @@ function updateWeatherInfo(data) {
   const location = document.querySelector('#location');
   location.innerText = `${data.cityName}, ${data.country}`;
 
-  const weatherIcon = document.querySelector('img');
+  const weatherIcon = document.querySelector('#weather-icon');
   weatherIcon.src = `https://openweathermap.org/img/wn/${data.weatherIcon}@4x.png`;
 
-  const temp = document.querySelector('h1');
+  const weatherIconMobile = document.querySelector('#weather-icon-mobile');
+  weatherIconMobile.src = `https://openweathermap.org/img/wn/${data.weatherIcon}@2x.png`;
+
+  const temp = document.querySelector('#main-temp');
   temp.innerText = `${data.temp}°C`;
 
-  const feelLike = document.querySelector('p');
+  const feelLike = document.querySelector('#feelslike-temp');
   feelLike.innerText = `Feels like ${data.feelsLikeTemp}°`;
 
   const windInfo = document.querySelector('#wind-info');

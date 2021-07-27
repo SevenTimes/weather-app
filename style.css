@@ -1,3 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#location {
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+#weather {
+  display: flex;
+  justify-content: center;
+}
+
+#weather-icon {
+  display: none;
+}
+
 #alert-404 {
   display: none;
   color: red;

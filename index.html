@@ -4,27 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
     <main>
-      <span id="location">City Name and Country</span>
-      <div id="main-stats">
-        <img src="#" alt="dynamic weather icon" />
-        <div class="temp">
-          <h1>30c</h1>
-          <p>Feels like</p>
+      <p id="location">City Name</p>
+      <div id="weather">
+        <img src="#" alt="dynamic weather icon" id="weather-icon" />
+        <img src="#" alt="dynamic weather icon for mobile screen" id="weather-icon-mobile" />
+        <div id="weather-container">
+          <div id="temp">
+            <h1 id="main-temp">30c</h1>
+            <p id="feelslike-temp">Feels like</p>
+          </div>
+          <div id="additional-stats">
+            <p id="wind-info">N, 3m/s</p>
+            <p id="humidity-info">40%</p>
+          </div>
         </div>
       </div>
-      <div id="additional-stats">
-        <span id="wind-info">N, 3m/s</span>
-        <span id="humidity-info">40%</span>
-      </div>
     </main>
-    <input type="text" />
-    <button id="search">search</button>
-    <p id="alert-404">Please insert correct city name</p>
+    <div id="search-container">
+      <input type="text" />
+      <button id="search" class="material-icons">search</button>
+      <p id="alert-404">Please insert correct city name</p>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
