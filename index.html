@@ -12,31 +12,36 @@
     />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Weather App</title>
   </head>
   <body>
     <main>
-      <p id="location">City Name</p>
+      <div id="info">
+        <p id="location"></p>
+        <p></p>
+      </div>
       <div id="weather">
         <img src="#" alt="dynamic weather icon" id="weather-icon" />
         <img src="#" alt="dynamic weather icon for mobile screen" id="weather-icon-mobile" />
         <div id="weather-container">
           <div id="temp">
-            <h1 id="main-temp">30c</h1>
-            <p id="feelslike-temp">Feels like</p>
+            <h1 id="main-temp"></h1>
+            <p id="feelslike-temp"></p>
           </div>
           <div id="additional-stats">
-            <p id="wind-info">N, 3m/s</p>
-            <p id="humidity-info">40%</p>
+            <p id="wind-info"></p>
+            <p id="humidity-info"></p>
           </div>
         </div>
       </div>
+      <div id="search-container">
+        <div id="search">
+          <input type="text" id="search-input" placeholder="Enter city name" />
+          <button id="search-submit" class="material-icons">search</button>
+        </div>
+        <p id="alert-404">Please insert correct city name</p>
+      </div>
     </main>
-    <div id="search-container">
-      <input type="text" />
-      <button id="search" class="material-icons">search</button>
-      <p id="alert-404">Please insert correct city name</p>
-    </div>
     <script src="./app.js"></script>
   </body>
 </html>

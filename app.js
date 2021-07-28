@@ -14,14 +14,14 @@ async function getWeatherData(city) {
   }
   const weatherData = new getWeatherObject(weatherJson);
   updateWeatherInfo(weatherData);
+  localStorage.setItem('location', city);
 }
 
 function getWeatherObject(json) {
   this.cityName = json.name;
   this.country = json.sys.country;
-  this.weatherDescription = json.weather[0].description;
   this.weatherIcon = json.weather[0].icon;
-  this.temp = json.main.temp;
+  this.temp = Math.round(json.main.temp);
   this.feelsLikeTemp = json.main.feels_like;
   this.humidity = json.main.humidity;
   this.windSpeed = json.wind.speed;
@@ -58,7 +58,7 @@ function updateWeatherInfo(data) {
 }
 
 const cityInput = document.querySelector('input');
-const searchBtn = document.querySelector('#search');
+const searchBtn = document.querySelector('#search-submit');
 
 searchBtn.addEventListener('click', searchWeather);
 cityInput.addEventListener('keydown', enterValue);
@@ -72,4 +72,14 @@ function enterValue(e) {
 function searchWeather() {
   getWeatherData(cityInput.value);
   cityInput.value = '';
+}
+
+document.addEventListener('DOMContentLoaded', loadSavedLocation);
+
+function loadSavedLocation() {
+  if (localStorage.location) {
+    getWeatherData(localStorage.location);
+  } else {
+    getWeatherData('Moscow');
+  }
 }
