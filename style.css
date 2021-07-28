@@ -11,8 +11,8 @@ body {
 }
 
 main {
-  display: flex;
-  height: 100vh;
+  display: none;
+  height: 80vh;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -94,4 +94,24 @@ main {
   display: none;
   padding-top: 0.5em;
   color: rgb(255, 43, 43);
+}
+
+@media (min-width: 1000px) {
+  main {
+    height: 80vh;
+    justify-content: center;
+    gap: 5em;
+  }
+
+  #location {
+    font-size: 5em;
+  }
+
+  #weather-icon-mobile {
+    display: none;
+  }
+
+  #weather-icon {
+    display: block;
+  }
 }

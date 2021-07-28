@@ -14,6 +14,10 @@ async function getWeatherData(city) {
   }
   const weatherData = new getWeatherObject(weatherJson);
   updateWeatherInfo(weatherData);
+
+  const main = document.querySelector('main');
+  main.style.display = 'flex';
+
   localStorage.setItem('location', city);
 }
 
