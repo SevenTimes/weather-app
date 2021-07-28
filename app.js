@@ -4,7 +4,6 @@ async function getWeatherData(city) {
   );
   const weatherJson = await weatherResponse.json();
 
-  const alert404 = document.getElementById('alert-404');
   if (weatherJson.cod === '404') {
     alert404.style.display = 'block';
     return;
@@ -63,6 +62,7 @@ function updateWeatherInfo(data) {
 
 const cityInput = document.querySelector('input');
 const searchBtn = document.querySelector('#search-submit');
+const alert404 = document.getElementById('alert-404');
 
 searchBtn.addEventListener('click', searchWeather);
 cityInput.addEventListener('keydown', enterValue);
@@ -74,7 +74,11 @@ function enterValue(e) {
 }
 
 function searchWeather() {
-  getWeatherData(cityInput.value);
+  if (cityInput.value.match(/\w+/)) {
+    getWeatherData(cityInput.value);
+  } else {
+    alert404.style.display = 'block';
+  }
   cityInput.value = '';
 }
 
