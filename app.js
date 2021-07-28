@@ -26,7 +26,7 @@ function getWeatherObject(json) {
   this.country = json.sys.country;
   this.weatherIcon = json.weather[0].icon;
   this.temp = Math.round(json.main.temp);
-  this.feelsLikeTemp = json.main.feels_like;
+  this.feelsLikeTemp = Math.round(json.main.feels_like);
   this.humidity = json.main.humidity;
   this.windSpeed = json.wind.speed;
   this.windDirection = degToCompass(json.wind.deg);
