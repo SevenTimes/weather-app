@@ -74,7 +74,8 @@ function enterValue(e) {
 }
 
 function searchWeather() {
-  if (cityInput.value.match(/[A-Za-zА-Яа-я]/)) {
+  const regex = new RegExp(/[A-Za-zА-Яа-я]/);
+  if (regex.test(cityInput.value)) {
     getWeatherData(cityInput.value);
   } else {
     alert404.style.display = 'block';
